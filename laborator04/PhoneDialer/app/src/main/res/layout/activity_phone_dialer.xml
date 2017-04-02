@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_phone_dialer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="phonedialer.lab03.eim.systems.cs.pub.ro.phonedialer.PhoneDialerActivity"
+    android:orientation="vertical"
+    >
 
     <EditText
         android:id="@+id/phonenumber"
@@ -17,19 +25,32 @@
 
     <GridLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:columnCount="5"
-        android:rowCount="3"
+        android:columnCount="3"
+        android:rowCount="6"
         android:stretchMode="columnWidth"
         android:layout_marginTop="20dp"
         >
+
+        <ImageButton
+            android:id="@+id/buttondel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/backspace"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            />
 
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
+            android:layout_column="0"
+            android:layout_row="1"
             />
 
         <Button
@@ -37,55 +58,65 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2"
+            android:layout_column="1"
+            android:layout_row="1"
             />
-
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3"
+            android:layout_column="2"
+            android:layout_row="1"
             />
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4"
+            android:layout_column="0"
+            android:layout_row="2"
             />
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5"
+            android:layout_column="1"
+            android:layout_row="2"
             />
-
-
 
         <Button
             android:id="@+id/button6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6"
+            android:layout_column="2"
+            android:layout_row="2"
             />
-
         <Button
             android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="7"
+            android:layout_column="0"
+            android:layout_row="3"
             />
-
         <Button
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="8"
+            android:layout_column="1"
+            android:layout_row="3"
             />
-
         <Button
             android:id="@+id/button9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="9"
+            android:layout_column="2"
+            android:layout_row="3"
             />
 
         <Button
@@ -93,56 +124,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
+            android:layout_column="1"
+            android:layout_row="4"
             />
-
-
 
         <Button
-            android:id="@+id/buttoncall"
+            android:id="@+id/buttonhashtag"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:drawableBottom="@drawable/call"
-            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="#"
+            android:layout_column="2"
+            android:layout_row="4"
             />
+
 
         <Button
             android:id="@+id/buttonstar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="*"
-            android:layout_gravity="center"
+            android:layout_column="0"
+            android:layout_row="4"
+            />
 
+        <ImageButton
+            android:id="@+id/buttonhang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hangup"
+            android:layout_column="2"
+            android:layout_row="5"
+            android:layout_gravity="center"
 
             />
 
         <ImageButton
-            android:id="@+id/buttondel"
-            android:layout_width="wrap_content"
+            android:id="@+id/buttoncall"
+            android:layout_width="42dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/backspace"
+            android:background="@drawable/call"
+            android:layout_column="0"
+            android:layout_row="5"
             android:layout_gravity="center"
             />
-
-
-        <Button
-            android:id="@+id/buttonhashtag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="#"
-            />
-
-        <Button
-            android:id="@+id/buttonhang"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:drawableBottom="@drawable/hangup"
-            android:layout_gravity="center"
-
-            />
-
 
     </GridLayout>
-
 
 </LinearLayout>
