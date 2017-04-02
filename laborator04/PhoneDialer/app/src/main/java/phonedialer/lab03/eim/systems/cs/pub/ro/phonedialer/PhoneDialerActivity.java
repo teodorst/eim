@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 public class PhoneDialerActivity extends AppCompatActivity {
@@ -22,11 +23,12 @@ public class PhoneDialerActivity extends AppCompatActivity {
     private DeleteClickListener deleteClickListener;
 
     private Button button0, button1, button2, button3, button4, button5, button6, button7, button8,
-            button9, buttonhashtag, buttonstar;
+            button9, buttonhashtag, buttonstar, addContactButton;
     private ImageButton buttondelete, buttoncall, buttonhang;
 
     private EditText phoneNumberEditText;
-    final static public int PERMISSION_REQUEST_CALL_PHONE = 12312;
+    final static public int PERMISSION_REQUEST_CALL_PHONE = 1;
+    final static public int CONTACTS_MANAGER_REQUEST_CODE = 2;
 
     private class ButtonClickListener implements Button.OnClickListener {
 
@@ -90,6 +92,7 @@ public class PhoneDialerActivity extends AppCompatActivity {
         button9 = (Button) findViewById(R.id.button9);
         buttonhashtag = (Button) findViewById(R.id.buttonhashtag);
         buttonstar = (Button) findViewById(R.id.buttonstar);
+        addContactButton = (Button) findViewById(R.id.add_contact);
 
         buttondelete = (ImageButton) findViewById(R.id.buttondel);
         buttoncall = (ImageButton) findViewById(R.id.buttoncall);
@@ -109,7 +112,6 @@ public class PhoneDialerActivity extends AppCompatActivity {
         buttonhashtag.setOnClickListener(buttonListener);
         buttonstar.setOnClickListener(buttonListener);
 
-
         buttondelete.setOnClickListener(deleteClickListener);
         buttoncall.setOnClickListener(callClickListener);
         buttonhang.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +122,20 @@ public class PhoneDialerActivity extends AppCompatActivity {
         });
 
         phoneNumberEditText = (EditText) findViewById(R.id.phonenumber);
+
+        addContactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phoneNumber = phoneNumberEditText.getText().toString();
+                if (phoneNumber.length() > 0) {
+                    Intent intent = new Intent("ro.pub.cs.systems.eim.lab04.contactsmanager.intent.action.ContactsManagerActivity");
+                    intent.putExtra("ro.pub.cs.systems.eim.lab04.contactsmanager.PHONE_NUMBER_KEY", phoneNumber);
+                    startActivityForResult(intent, CONTACTS_MANAGER_REQUEST_CODE);
+                } else {
+                    Toast.makeText(getApplication(), getResources().getString(R.string.phone_error), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
     }
 
