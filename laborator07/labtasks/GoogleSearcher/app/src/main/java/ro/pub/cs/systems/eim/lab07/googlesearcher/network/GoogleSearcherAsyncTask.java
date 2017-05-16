@@ -1,7 +1,18 @@
 package ro.pub.cs.systems.eim.lab07.googlesearcher.network;
 
 import android.os.AsyncTask;
+import android.text.Html;
+import android.util.Log;
 import android.webkit.WebView;
+
+import java.io.IOException;
+
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.ResponseHandler;
+import cz.msebera.android.httpclient.client.methods.HttpGet;
+import cz.msebera.android.httpclient.impl.client.BasicResponseHandler;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import ro.pub.cs.systems.eim.lab07.googlesearcher.general.Constants;
 
 public class GoogleSearcherAsyncTask extends AsyncTask<String, Void, String> {
 
@@ -19,6 +30,16 @@ public class GoogleSearcherAsyncTask extends AsyncTask<String, Void, String> {
         // create an instance of a HttpGet object, encapsulating the base Internet address (http://www.google.com) and the keyword
         // create an instance of a ResponseHandler object
         // execute the request, thus generating the result
+        HttpClient httpClient = new DefaultHttpClient();
+        HttpGet httpGet = new HttpGet(Constants.GOOGLE_INTERNET_ADDRESS + params[0]);
+        Log.d(Constants.TAG, "onPostExecute: " + Constants.GOOGLE_INTERNET_ADDRESS + params[0]);
+        ResponseHandler<String> responseHandler = new BasicResponseHandler();
+        try {
+            String response = httpClient.execute(httpGet, responseHandler);
+            return response;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return null;
     }
@@ -33,6 +54,6 @@ public class GoogleSearcherAsyncTask extends AsyncTask<String, Void, String> {
         // - mimetype is text/html
         // - encoding is UTF-8
         // - history is null
-
+        googleResultsWebView.loadDataWithBaseURL("http://www.google.com", content, "text/html", "UTF-8", null);
     }
 }
