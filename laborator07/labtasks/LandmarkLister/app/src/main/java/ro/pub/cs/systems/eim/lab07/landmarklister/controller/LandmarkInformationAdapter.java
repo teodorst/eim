@@ -30,7 +30,6 @@ public class LandmarkInformationAdapter extends BaseAdapter {
     };
 
     public LandmarkInformationAdapter(Context context, List<LandmarkInformation> content) {
-        this.context = context;
         this.content = content;
         this.layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
