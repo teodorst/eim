@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/server_port_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5050"
+        />
+
+    <Button
+        android:id="@+id/server_start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Server"
+        />
+
+    <TextView
+        android:id="@+id/server_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
